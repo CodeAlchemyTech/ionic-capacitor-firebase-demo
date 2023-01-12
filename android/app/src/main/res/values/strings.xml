@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Firebase Basic</string>
+    <string name="title_activity_main">Firebase Basic</string>
+    <string name="package_name">com.firebase.utilities</string>
+    <string name="custom_url_scheme">com.firebase.utilities</string>
+
+    <string name="facebook_app_id">[FACEBOOK_APP_ID]</string>
+    <string name="fb_login_protocol_scheme">fb[FACEBOOK_APP_ID]</string>
+    <string name="facebook_client_token">[REVERSED_CLIENT_TOKEN]</string>
+</resources>
