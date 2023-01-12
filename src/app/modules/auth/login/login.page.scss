@@ -1,0 +1,69 @@
+.password-icon {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  z-index: 999;
+}
+
+span {
+  color: #2f4fdc;
+  font-weight: 800;
+}
+
+fieldset {
+  padding: 0px;
+  border: none;
+  text-align: center;
+  border-top: 2px solid #ccc;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+legend {
+  padding: 0px 10px;
+  letter-spacing: 0.4px;
+  font-size: 15px;
+}
+
+.btn {
+  margin: 0px 0px 15px 0px;
+  height: 44px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.1px;
+
+  .btn-icon {
+    margin-right: 4px;
+  }
+
+  &.facebook {
+    --background: var(--facebook-button-color);
+    --background-activated: var(--facebook-button-active);
+
+    .facbook-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &.google {
+    --background: var(--google-button-color);
+    --background-activated: var(--google-button-active);
+  }
+
+  &.twitter {
+    --background: var(--twitter-button-color);
+    --background-activated: var(--twitter-button-active);
+  }
+
+  &.apple {
+    --background: var(--apple-button-color);
+    --background-activated: var(--apple-button-active);
+  }
+
+  .btn-icon {
+    margin-right: 4px;
+  }
+}

@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Login </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="login-wrapper ion-padding">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <ion-item class="item-no-padding">
+        <ion-label position="stacked">
+          Email
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required formControlName="email" type="text"></ion-input>
+        <ng-container *ngFor="let validation of validationHelper.validationMessages.email">
+          <ng-container
+            *ngIf="loginForm.get('email')?.hasError(validation.type) && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+            <ion-note slot="error"> {{ validation.message }} </ion-note>
+          </ng-container>
+        </ng-container>
+      </ion-item>
+      <ion-item class="item-no-padding">
+        <ion-label position="stacked">
+          Password
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required formControlName="password" [type]="showPassword ? 'text' : 'password'"></ion-input>
+        <ion-icon slot="end" [name]="showPassword ? 'eye-outline' : 'eye-off-outline'"
+          (click)="showPassword = !showPassword" class="password-icon"></ion-icon>
+        <ng-container *ngFor="let validation of validationHelper.validationMessages.password">
+          <ng-container
+            *ngIf="loginForm.get('password')?.hasError(validation.type) && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+            <ion-note slot="error"> {{ validation.message }} </ion-note>
+          </ng-container>
+        </ng-container>
+      </ion-item>
+      <div class="ion-padding ion-text-center">
+        <ion-button class="ion-margin-top" size="block" color="primary" type="submit" [disabled]="loginForm.invalid">
+          Login
+        </ion-button>
+
+        <div class="ion-margin-top" (click)="register()">
+          If you don't have an account. <span> Create an Account</span>
+        </div>
+      </div>
+    </form>
+    <fieldset>
+      <legend>OR</legend>
+    </fieldset>
+
+    <div class="social-login-wrapper ion-margin-top">
+      <ion-button (click)="socialLogin('facebook')" class="btn facebook">
+        <ion-icon name="logo-facebook" class="facbook-icon btn-icon"></ion-icon>
+        Login with Facebook
+      </ion-button>
+      <ion-button (click)="socialLogin('google')" class="btn google">
+        <ion-icon name="logo-google" class="btn-icon"></ion-icon>
+        Login with Google
+      </ion-button>
+      <!-- <ion-button (click)="socialLogin('twitter')" class="btn twitter">
+        <ion-icon name="logo-twitter" class="btn-icon"></ion-icon>
+        Login with Twitter
+      </ion-button> -->
+      <!-- <ion-button (click)="socialLogin('apple')" class="btn apple">
+        <ion-icon name="logo-apple" class="btn-icon"></ion-icon>
+        Login with Apple
+      </ion-button> -->
+    </div>
+  </div>
+</ion-content>
